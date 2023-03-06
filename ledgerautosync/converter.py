@@ -822,7 +822,7 @@ class MintConverter(CsvConverter):
         super(MintConverter, self).__init__(*args, **kwargs)
 
     def mk_amount(self, row, reverse=False):
-        return Amount(Decimal(row["Amount"]), "$", reverse=reverse)
+        return Amount(Decimal(row["Amount"]), row["Currency"], reverse=reverse)
 
     def convert(self, row):
         account = self.name
